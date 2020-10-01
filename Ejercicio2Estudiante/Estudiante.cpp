@@ -5,93 +5,57 @@
 static float promedioFinal;
 using namespace std;
 
-float Estudiante::CalcularNotas(float promediouno, float promediodos, float promediotres)
-{
-    promedioFinal = ((promediouno * 0.30) + (promediodos * 0.30) + (promediotres * 0.40));
-    
-    return promedioFinal;
-}
-
 Estudiante::Estudiante()
 {  
-    strcpy(_carnet, " ");
-    strcpy(_nombre, " ");
-    strcpy(_materia, " ");
-    _promedioUno = 0;
-    _promedioDos = 0;
-    _promedioTres = 0;
-    fflush(stdin);
 }
 Estudiante::~Estudiante()
 {}
-void Estudiante::MostarMenu()
+void Estudiante::setCarnet(string carnet)
 {
-    char op = ' ';
-    while (op != 's')
-    {
-        IngresarAlumno();
-        MostrarAlumno();
-        cout << "\n5Ingrese cualquier letra para introducir otro alumno";
-        cout << "\nIngrese [s] para salir: "; cin >> op;
-    }
+    _carnet = carnet;
 }
-void Estudiante::IngresarAlumno()
+string Estudiante::getCarnet()
 {
-    system("cls");
-    fflush(stdin);
-    cout << "\nIngreso de datos del alumno\n";
-    cout << "\nIngrese Nombre: "; cin >> (_nombre);
-    cout << "\nIngrese Carnet: "; cin >> (_carnet);
-    cout << "\nIngrese Materia: "; cin >> (_materia);
-    ValidarNotasPromedio();
-    cout << "\nIngrese los Promedios \n";
+    return string(_carnet);
 }
-void Estudiante::MostrarAlumno()
+void Estudiante::setNombre(string nombre) 
 {
-    system("cls");
-    cout << "\n Datos del alunmo\n";
-    cout << "\nCarnet: " << _carnet << "\n";
-    cout << "\nNombre: " << _nombre << "\n";
-    cout << "\nMateria: " << _materia << "\n";
-    ValidacionEstadoPromedio();
-
+    _nombre = nombre;
 }
-void Estudiante::ValidarNotasPromedio()
+string Estudiante::getNombre()
 {
+    return string(_nombre);
+}
+void Estudiante::setMateria(string materia)
+{
+    _materia = materia;
+}
+string Estudiante::getMateria()
+{
+    return string(_materia);
+}
+void Estudiante::setPromedio(double p1, double p2, double p3)
+{
+    _promedioUno = p1 * 0.30;
+    _promedioDos = p2 * 0.30;
+    _promedioTres = p3 * 0.40;
+}
+double Estudiante::getPromedio()
+{
+    return (_promedioUno + _promedioDos + _promedioTres);
+}
+int Estudiante::ValidarNotasPromedio(double p1, double p2, double p3)
+{
+    if (p1 > 10 || p1 < 0)
+        return 1;
     
-    cout << "\nPrimer Promedio: "; cin >> (_promedioUno);
-    cout << "\nSegundo Promedio: ", cin >> (_promedioDos);
-    cout << "\nTercer Promedio: ", cin >> (_promedioTres);
+    if (p2 > 10 || p2 < 0)
+            return 2;
+    
+    if (p3 > 10 || p3 < 0)
+        return 3;
 
-    while (_promedioUno > 10 || _promedioUno < 0)
-    {
-        cout << "\nEl promedio tiene que ser mayor a 0 igual y menor a 10\n";
-        cout << "\nPrimer Promedio: "; cin >> (_promedioUno);
-    }
-    while (_promedioDos > 10 || _promedioDos < 0)
-    {
-        cout << "\nEl promedio tiene que ser mayor a 0 igual y menor a 10\n";
-        cout << "\nSegundo Promedio: ", cin >> (_promedioDos);
-    }
-    while (_promedioTres > 10 || _promedioTres < 0)
-    {
-        cout << "\nEl promedio tiene que ser mayor a 0 igual y menor a 10\n";
-        cout << "\nTercer Promedio: ", cin >> (_promedioTres);
-    } 
-    CalcularNotas(_promedioUno, _promedioDos, _promedioTres);
+    return 0;
 }
-void Estudiante::ValidacionEstadoPromedio()
-{
-    if (promedioFinal > 6)
-    {
-        cout << "\nPromedio Final: " << defaultfloat << promedioFinal << "\n";
-        cout << "\nEstado: Aprovado\n";
-    }
-    else
-    {
-        cout << "\nPromedio Final: " << defaultfloat << promedioFinal;
-        cout << "\nEstado: Reprobado\n";
-    }
 
-}
 

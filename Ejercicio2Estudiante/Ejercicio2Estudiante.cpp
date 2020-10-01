@@ -8,8 +8,63 @@ using namespace std;
 
 int main()
 {
-	Estudiante estuiante;
-	estuiante.MostarMenu();
+	string carnet="",nombre="",materia="";
+	double promediouno=0, promediodos=0, promediotres=0;
+	int validacionpromedio = 0;
+	char op = ' ';
+	Estudiante estudiante;
+	while (true)
+	{
+		system("cls");
+		cout << "\nIngreso los siguientes datos del alumno\n";
+		cout << "\nCarnet: "; cin >> carnet;
+		estudiante.setCarnet(carnet);
+		cout << "\nNombre: "; cin >> nombre;
+		estudiante.setNombre(nombre);
+		cout << "\nMateria: "; cin >> materia;
+		estudiante.setMateria(materia);
+		cout << "\nPrimer Promedio: "; cin >> promediouno;
+		cout << "\nSegundo Promedio: ", cin >> promediodos;
+		cout << "\nTercer Promedio: ", cin >> promediotres;
+		validacionpromedio=estudiante.ValidarNotasPromedio(promediouno, promediodos, promediotres);
+		while ( validacionpromedio != 0)
+		{
+			cout << "\nEl promedio tiene que ser mayor o igual a 0 y menor a 10\n";
+			switch (validacionpromedio)
+			{
+			case 1:				
+				cout << "\nPrimer Promedio: "; cin >> (promediouno);
+				break;
+			case 2:
+				cout << "\nSegundo Promedio: ", cin >> (promediodos);
+				break;
+			case 3:
+				cout << "\nTercer Promedio: ", cin >> (promediotres);
+			default:
+				break;
+			}
+			validacionpromedio = estudiante.ValidarNotasPromedio(promediouno, promediodos, promediotres);
+		}
+		estudiante.setPromedio(promediouno, promediodos, promediotres);
+
+		cout << "\nDATOS DEL ALUMNO" << endl;
+		cout << "\nCarnet: " << estudiante.getCarnet() << endl;
+		cout << "\nIngrese Nombre: " << estudiante.getNombre() << endl;
+		cout << "\nIngrese Materia: " << estudiante.getMateria() << endl;
+		if (estudiante.getPromedio() > 6)
+		{
+			cout << "\nPromedio Final: " << defaultfloat << estudiante.getPromedio() << endl;
+			cout << "\nEstado: Aprovado\n";
+		}
+		else
+		{
+			cout << "\nPromedio Final: " << defaultfloat << estudiante.getPromedio() << endl;
+			cout << "\nEstado: Reprobado\n";
+		}
+		cout << "\n5Ingrese cualquier letra para introducir otro alumno";
+		cout << "\nIngrese [s] para salir: "; cin >> op;
+		
+	}
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar

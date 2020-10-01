@@ -8,23 +8,23 @@ class Estudiante
 {
 private:
 	
-	char _carnet[8];
-	char _nombre[50];
-	char _materia[20];
+	string _carnet;
+	string _nombre;
+	string _materia;
 	float _promedioUno;
 	float _promedioDos;
 	float _promedioTres;
-	float CalcularNotas(float promediouno, float promediodos, float promediotres);
-	void ValidacionEstadoPromedio();
-	void ValidarNotasPromedio();
-	void IngresarAlumno();
-	void MostrarAlumno();
 public:
+	void setCarnet(string);
+	string getCarnet();
+	void setNombre(string);
+	string getNombre();
+	void setMateria(string);
+	string getMateria();
+	void setPromedio(double,double,double);
+	double getPromedio();
+	int ValidarNotasPromedio(double, double, double);
 	Estudiante();
 	~Estudiante();
-	void MostarMenu();
-	
-	
-
 };
 
