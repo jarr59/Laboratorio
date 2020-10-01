@@ -15,6 +15,7 @@ int main()
 		cout << "2 - Rectangulo" << endl;
 		cout << "3 - Circunferencia" << endl;
 		cout << "4 - Triangulo" << endl;
+		cout << "5 - Salir" << endl;
 		cout << "Opcion elegida: "; cin >> op;
 		switch (op)
 		{
