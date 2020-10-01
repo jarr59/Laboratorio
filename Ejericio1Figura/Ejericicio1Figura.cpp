@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
 	Figura figura;
+	double ladoA = 0,ladoB = 0,diametro = 0,radio = 0,base = 0,altura = 0;
 	int op = 0;
 	while (op != 5)
 	{
@@ -19,21 +20,89 @@ int main()
 		cout << "Opcion elegida: "; cin >> op;
 		switch (op)
 		{
-		case 1:
-			figura.LeerDatosCuadrado();
-			figura.MostrarDatosCuadrado();
+		case 1:	
+			system("cls");
+			cout << "\nCalcular el perimetro y area de un cuadrado" << endl;
+			cout << "\nIngrese un lado del cuadrado: "; cin >> ladoA;	
+			while (ladoA < 1)
+			{
+				cout << "\nIngrese un lado del cuadrado: "; cin >> ladoA;
+			}
+			figura.setladoA(ladoA);
+			cout << "\nPerimetro: " << defaultfloat << figura.getPerimetroCuadrado(figura.getladoA()) << endl;
+			cout << "\nArea: " << defaultfloat << figura.getAreaCuadrado(figura.getladoA()) << endl;
 			break;
-		case 2:
-			figura.LeerDatosRectangulo();
-			figura.MostrarDatosRectangulo();
+		case 2:	
+			system("cls");
+			cout << "\nCalcular el perimetro y area de un rectangulo" << endl;
+			cout << "\nIngrese el lado A: "; cin >> ladoA;
+			cout << "\nIngrese el lado B: "; cin >> ladoB;
+			if (ladoA < 1 || ladoB < 1)
+			{
+				cout << "Ingrese numero positivos" << endl;
+				while (ladoA < 1)
+				{
+					cout << "\nIngrese el lado A: "; cin >> ladoA;
+				}	
+				while (ladoB < 1)
+				{
+					cout << "\nIngrese el lado B: "; cin >> ladoB;
+				}				
+			}
+			figura.setLadoB(ladoB);
+			figura.setladoA(ladoA);
+			cout << "\nPerimetro: " << figura.getPerimetroRectangulo(figura.getladoA(),figura.getLadoB()) << endl;
+			cout << "\nArea: " << figura.getAreaRectangulo(ladoA,ladoB)<< endl;
 			break;
 		case 3:
-			figura.LeerDatosCircunferencia();
-			figura.MostrarDatosCircunferencia();
+			system("cls");
+			cout << "\nCalcular perimetro y area de una circunferencia" << endl;
+			cout << "\nIngrese el diametro: "; cin >> diametro;
+			cout << "\nIngrese el radio: "; cin >> radio;
+			if (diametro < 1 || radio < 1)
+			{
+				cout << "Ingrese numero positivos" << endl;
+				while (diametro < 1)
+				{
+					cout << "\nIngrese el diametro: "; cin >> diametro;
+				}
+				while (radio < 1)
+				{
+					cout << "\nIngrese el radio: "; cin >> radio;
+				}
+			}
+			figura.setladoA(diametro);
+			figura.setLadoB(radio);
+			cout << "\nPerimetro: " << figura.getPerimetroCircunferencia(figura.getladoA()) << endl;
+			cout << "\nArea: " << figura.getAreaCircunferencia(figura.getladoA(),figura.getLadoB()) << endl;
 			break;
 		case 4:
-			figura.LeerDatosTriangulo();
-			figura.LeerDatosTriangulo();
+			system("cls");
+			cout << "\nCalcular area y perimetro de un triangulo Isósceles" << endl;
+			cout << "\nIngrese el lado A o B: "; cin >> ladoA;
+			cout << "\nIngrese la base: "; cin >> base;
+			cout << "\nIngrese la altura: "; cin >> altura;
+			if (ladoA < 1 || base < 1 || altura < 1)
+			{
+				cout << "Ingrese numero positivos" << endl;
+				while (ladoA < 1)
+				{
+					cout << "\nIngrese el lado A o B: "; cin >> ladoA;
+				}
+				while (base < 1)
+				{
+					cout << "\nIngrese la base: "; cin >> base;
+				}
+				while (altura < 1)
+				{
+					cout << "\nIngrese la altura: "; cin >> altura;
+				}		
+			}			
+			figura.setladoA(ladoA);
+			figura.setLadoB(base);
+			figura.setAltura(altura);
+			cout << "\nPerimetro: " << figura.getPerimetroTriangulo(figura.getladoA(),figura.getLadoB()) << endl;
+			cout << "\nArea: " << figura.getAreaTriangulo(figura.getLadoB() ,figura.getAltura()) << endl;
 		default:
 			break;
 		}

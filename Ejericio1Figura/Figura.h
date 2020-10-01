@@ -13,21 +13,24 @@ public:
 	void setAltura(double);
 	double getAltura();
 
-	void LeerDatosCuadrado();
 
-	void MostrarDatosCuadrado();
 
-	void LeerDatosRectangulo();
+	double getAreaCuadrado(double lado);
 
-	void MostrarDatosRectangulo();
+	double getPerimetroCuadrado(double lado);
 
-	void LeerDatosCircunferencia();
+	double getAreaRectangulo(double ladoA, double ladoB);
 
-	void MostrarDatosCircunferencia();
+	double getPerimetroRectangulo(double ladoA, double ladoB);
 
-	void LeerDatosTriangulo();
+	double getAreaCircunferencia(double diametro, double radio);
 
-	void MostrarDatosTriangulo();
+	double getPerimetroCircunferencia(double diametro);
+
+	double getPerimetroTriangulo(double ladoA,double base);
+
+	double getAreaTriangulo(double base, double altura);
+
 
 };
 

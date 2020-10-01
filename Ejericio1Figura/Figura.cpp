@@ -33,74 +33,41 @@ double Figura::getAltura()
 	return _altura;
 }
 
-void Figura::LeerDatosCuadrado()
+double Figura::getAreaCuadrado(double lado)
 {
-	system("cls");
-	double lado=0;
-	cout << "\nCalcular el perimetro y area de un cuadrado" << endl;
-	cout << "\nIngrese un lado del cuadrado: "; cin >> lado;
-	setladoA(lado);
+	return lado * 4;
+}
+double Figura::getPerimetroCuadrado(double lado)
+{
+	return lado * lado;
 }
 
-void Figura::MostrarDatosCuadrado()
+double Figura::getAreaRectangulo(double ladoA, double ladoB)
 {
-	cout << "\nPerimetro: " << getladoA() * 4 << endl;
-	cout << "\nArea: " << getladoA() * getladoA() << endl;
+	return (ladoA * ladoB);
 }
 
-void Figura::LeerDatosRectangulo()
+double Figura::getPerimetroRectangulo(double ladoA, double ladoB)
 {
-	double ladoA = 0;
-	double ladoB = 0;
-	system("cls");
-	cout << "\nCalcular el perimetro y area de un rectangulo" << endl;
-	cout << "\nIngrese el lado A: "; cin >> ladoA;
-	setladoA(ladoA);
-	cout << "\nIngrese el lado B: "; cin >> ladoB;
-	setLadoB(ladoB);
+	return ((2 * ladoA) + (2 * ladoB));
 }
 
-void Figura::MostrarDatosRectangulo()
+double Figura::getAreaCircunferencia(double diametro,double radio)
 {
-	cout << "\nPerimetro: " << (2 * getladoA()) + (2 * getLadoB()) << endl;
-	cout << "\nArea: " << (getladoA() * getLadoB()) << endl;
+	return Pi * (diametro * radio);
 }
 
-void Figura::LeerDatosCircunferencia()
+double Figura::getPerimetroCircunferencia(double diametro)
 {
-	double diametro = 0;
-	double radio = 0;
-	system("cls");
-	cout << "\nCalcular perimetro y area de una circunferencia" << endl;
-	cout << "\nIngrese el diametro: "; cin >> diametro;
-	setladoA(diametro);
-	cout << "\nIngrese el radio: "; cin >> radio;
-	setLadoB(radio);
+	return Pi * (2 * (diametro));
 }
 
-void Figura::MostrarDatosCircunferencia()
+double Figura::getPerimetroTriangulo(double ladoA,double base)
 {
-	cout << "\nPerimetro: " << Pi * (2 * (getladoA()));
-	cout << "\nArea: " << Pi * (getLadoB() * getLadoB());
+	return (ladoA + ladoA + base);
 }
 
-void Figura::LeerDatosTriangulo()
+double Figura::getAreaTriangulo(double base, double altura)
 {
-	double ladoAB=0;
-	double base = 0;
-	double altura = 0;
-	system("cls");
-	cout << "\nCalcular area y perimetro de un triangulo Isósceles" << endl;
-	cout << "\nIngrese el lado A o B: "; cin >> ladoAB;
-	setladoA(ladoAB);
-	cout << "\nIngrese la base: "; cin >> base;
-	setLadoB(base);
-	cout << "\nIngrese la altura: "; cin >> altura;
-	setAltura(altura);
-}
-
-void Figura::MostrarDatosTriangulo()
-{
-	cout << "\nPerimetro: " << (getladoA() + getladoA() + getLadoB());
-	cout << "\nArea: " << (getLadoB() * getAltura()) / 2;
+	return ((base * altura) / 2);
 }
