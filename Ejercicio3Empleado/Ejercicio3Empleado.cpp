@@ -19,11 +19,11 @@ int main()
 	while (op != 3)
 	{
 		system("cls");
-		cout << "BIENVENIDO QUE ACCION DESE REALIZAR" << endl;
-		cout << "Ingrese la opcion a realizar";
-		cout << "\n1 - Ingresar Empleado";
-		cout << "\n2 - Ver Empleados";
-		cout << "\n3 - Salir";
+		cout << "BIENVENIDO QUE ACCION DESEA REALIZAR" << endl;
+		cout << "\nIngrese la opcion a realizar" << endl;
+		cout << "\n1 - Ingresar Empleado" << endl;
+		cout << "\n2 - Ver Empleados" << endl;
+		cout << "\n3 - Salir" << endl;
 		cout << "\nOpcion elegida: "; cin >> op;
 		switch (op)
 		{
@@ -32,13 +32,13 @@ int main()
 			{
 				system("cls");
 				cin.clear();
-				cout << "\nBienvenido al Registro de un Empleado.\n";
+				cout << "\nBienvenido al Registro de un Empleado."<< endl;
 				cout << "\nIngrese el Id del Empleado: "; cin >> idmpleado;
 				cout << "\nIngrese el Nombre: "; cin >> nombre;
 				cout << "\nIngrese la Fecha de Ingreso" << endl;
-				cout << "Dia: "; cin >> dia;
+				cout << "\nDia: "; cin >> dia;
 				cout << "\nMes: "; cin >> mes;
-				cout << "\nAño: "; cin >> anio;
+				cout << "\nAnio: "; cin >> anio;
 				while (anio < 1900 || anio  > 2020 || anio == 0)
 				{
 					cout << "\nAnio valido: 1900 - 2020";
@@ -57,12 +57,17 @@ int main()
 				}
 				emp.leerDatos(contador, idmpleado, nombre, dia, mes, anio);
 				contador++;
+				cout << "\nRegistro creado con exito"<< endl;
+				cout << "\nPresione una tecla para volver al menu" << endl;
+				_getch();
 			}
 			else
 			{
 				system("cls");
-				cout << "**************AVISO******************\n";
-				cout << "\nYa no puedes agragar mas registros\n";			
+				cout << "**************AVISO******************\n" << endl;
+				cout << "\nYa no puedes agragar mas registros\n" <<endl;
+				cout << "Presione una tecla para volver al menu" << endl;
+				_getch();
 			}	
 			break;
 		case 2:
@@ -71,7 +76,9 @@ int main()
 			{
 				system("cls");
 				cout << "**************AVISO******************\n";
-				cout << "\nAGREGA REGISTROS" << endl;
+				cout << "\n Todavia no hay registros" << endl;
+				cout << "\nPresione una tecla para volver al menu" << endl;;
+				_getch();
 			}
 			else
 			{
@@ -82,12 +89,12 @@ int main()
 				{
 					emp.verDatosEmpleado(idmpleado, nombre, fechaingreso,i);
 					cout << "***************************" << endl;
-					cout << "Id: " << idmpleado << endl;
-					cout << "Nombre: " << nombre << endl;
-					cout << "Fecha Ingreso: " << fechaingreso << endl;
-					cout << "***************************" << endl;
+					cout << "\nId: " << idmpleado << endl;
+					cout << "\nNombre: " << nombre << endl;
+					cout << "\nFecha Ingreso: " << fechaingreso << endl;
+					cout << "\n***************************" << endl;
 				}
-				cout << "Presione una tecla para volver al menu";
+				cout << "\nPresione una tecla para volver al menu" << endl;
 				_getch();
 			}
 			
