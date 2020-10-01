@@ -46,7 +46,7 @@ int main()
 			validacionpromedio = estudiante.ValidarNotasPromedio(promediouno, promediodos, promediotres);
 		}
 		estudiante.setPromedio(promediouno, promediodos, promediotres);
-
+		system("cls");
 		cout << "\nDATOS DEL ALUMNO" << endl;
 		cout << "\nCarnet: " << estudiante.getCarnet() << endl;
 		cout << "\nIngrese Nombre: " << estudiante.getNombre() << endl;
