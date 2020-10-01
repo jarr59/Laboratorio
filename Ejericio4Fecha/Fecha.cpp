@@ -62,7 +62,7 @@ void Fecha::Adelantar(int d, int m, int a)
 		m = 1;
 	_d = d;
 	_m = m;
-	_a = 2002;
+	_a = a;
 	_d++;
 	if (d >= dias(_m))
 	{
