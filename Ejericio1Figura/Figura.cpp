@@ -44,7 +44,7 @@ void Figura::LeerDatosCuadrado()
 
 void Figura::MostrarDatosCuadrado()
 {
-	cout << "\nPerimtero: " << getladoA() * 4 << endl;
+	cout << "\nPerimetro: " << getladoA() * 4 << endl;
 	cout << "\nArea: " << getladoA() * getladoA() << endl;
 }
 
