@@ -11,15 +11,20 @@ private:
 	string _nombre;
 	string _idEmpleado;
 	string _fechaIngreso;
-	int _año;
-	int _mes;
-	int _dia;
-	void formatoFecha(int contad);
 public:
+	void setNombre(string);
+	string getNombre();
+	void setIdEmpleado(string);
+	string getIdEmpleado();
+	void setFechaIngreso(int dia, int mes, int anio);
+	string getFechaIngreso();
+
 	Empleado();
 	~Empleado();
-	void leerDatos();
+
+	void leerDatos(int contador, string id, string nombre, int dia, int mes, int año);
 	void verDatos();
+	void verDatosEmpleado(string& idempleado, string& nombre, string& fechaingreso,int &iter);
 	
 	
 };

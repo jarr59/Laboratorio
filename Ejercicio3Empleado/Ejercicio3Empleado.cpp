@@ -5,15 +5,22 @@
 #include <iostream>
 #include <list>
 #include "Empleado.h"
+#include <stdlib.h>
+#include <conio.h>
 
 int main()
 {
-    Empleado* emp = new Empleado();
-	int op = 0;
+	Empleado emp;
+	int op = 0, contador = 0, dia = 0, mes = 0, anio = 0;
+	string fechaingreso;
+	string nombre;
+	string idmpleado;
 
 	while (op != 3)
 	{
-		cout << "\nIngrese la opcion a realizar";
+		system("cls");
+		cout << "BIENVENIDO QUE ACCION DESE REALIZAR" << endl;
+		cout << "Ingrese la opcion a realizar";
 		cout << "\n1 - Ingresar Empleado";
 		cout << "\n2 - Ver Empleados";
 		cout << "\n3 - Salir";
@@ -21,10 +28,69 @@ int main()
 		switch (op)
 		{
 		case 1:
-			emp->leerDatos();
+			if (contador < 5)
+			{
+				system("cls");
+				cin.clear();
+				cout << "\nBienvenido al Registro de un Empleado.\n";
+				cout << "\nIngrese el Id del Empleado: "; cin >> idmpleado;
+				cout << "\nIngrese el Nombre: "; cin >> nombre;
+				cout << "\nIngrese la Fecha de Ingreso" << endl;
+				cout << "Dia: "; cin >> dia;
+				cout << "\nMes: "; cin >> mes;
+				cout << "\nAño: "; cin >> anio;
+				while (anio < 1900 || anio  > 2020 || anio == 0)
+				{
+					cout << "\nAnio valido: 1900 - 2020";
+					cout << "\nIngrese el Anio: ";
+					cin >> anio;
+				}
+				while (mes > 12 || mes < 1)
+				{
+					cout << "\nMeses valido: 1 - 12";
+					cout << "\nIngrese el Mes: "; cin >> mes;
+				}
+				while (dia > 31 || dia < 1)
+				{
+					cout << "\nIngrese un dia valido: 1 - 31";
+					cout << "\nIngrese el dia: "; cin >> dia;
+				}
+				emp.leerDatos(contador, idmpleado, nombre, dia, mes, anio);
+				contador++;
+			}
+			else
+			{
+				system("cls");
+				cout << "**************AVISO******************\n";
+				cout << "\nYa no puedes agragar mas registros\n";			
+			}	
 			break;
 		case 2:
-			emp->verDatos();
+			
+			if (contador == 0)
+			{
+				system("cls");
+				cout << "**************AVISO******************\n";
+				cout << "\nAGREGA REGISTROS" << endl;
+			}
+			else
+			{
+				cin.clear();
+				system("cls");
+				cout << "Datos del empleado" << endl;
+				for (int i = 0; i < contador; i++)
+				{
+					emp.verDatosEmpleado(idmpleado, nombre, fechaingreso,i);
+					cout << "***************************" << endl;
+					cout << "Id: " << idmpleado << endl;
+					cout << "Nombre: " << nombre << endl;
+					cout << "Fecha Ingreso: " << fechaingreso << endl;
+					cout << "***************************" << endl;
+				}
+				cout << "Presione una tecla para volver al menu";
+				_getch();
+			}
+			
 			break;
 		default:
 			cout << "\nElija una opcion valida";
