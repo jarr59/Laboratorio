@@ -4,12 +4,13 @@ class Fecha
 	int _d;
 	int _m;
 	int _a;
-	void Reiniciar();
-	void  Adelantar(int d, int m, int a);
-	void normalizar();
 	int dias(int mes);
 public:
 	Fecha();
+	void Reiniciar();
+	void  Adelantar(int d, int m, int a);
+	void Atrasar(int d, int m, int a);
+	void normalizar();
 	//void setDia(int);
 	//int getDia();
 	//void setMes(int);
@@ -17,5 +18,6 @@ public:
 	//void setAnio(int);
 	//int getAnio();
 	void imprimir();
+	void IngresarFecha(int d, int m, int a);
 };
 
